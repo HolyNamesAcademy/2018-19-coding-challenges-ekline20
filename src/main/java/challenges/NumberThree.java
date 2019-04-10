@@ -25,18 +25,21 @@ public class NumberThree {
      */
     public String timeConversion(String s) {
 
+        //System.out.print(s);
         String militaryTime = "";
 
         String timeSubstring = s.substring(0,8);
-        String dayTime = s.substring(9);
+        String dayTime = s.substring(8,10);
         //System.out.print(timeSubstring);
+        //System.out.print(dayTime);
         String[] timeSplit = timeSubstring.split(":");
 
         int temp = Integer.parseInt(timeSplit[0]);
+        //System.out.print("temp");
 
         if(dayTime.equals("AM")){
             if(temp == 12){
-                temp = 00;
+                temp = 0;
             }
             else{
                 temp = temp;
@@ -47,15 +50,17 @@ public class NumberThree {
                 temp = temp;
             }
             else{
-                temp = temp + 12;
+                temp += 12;
             }
         }
 
+        String finalHour = "";
+
         if(temp < 12){
-            String finalHour = "0" + Integer.toString(temp);
+            finalHour = "0" + Integer.toString(temp);
         }
         else{
-            String finalHour = Integer.toString(temp);
+            finalHour = Integer.toString(temp);
         }
 
         militaryTime = finalHour + ":" + timeSplit[1] + ":" + timeSplit[2];
