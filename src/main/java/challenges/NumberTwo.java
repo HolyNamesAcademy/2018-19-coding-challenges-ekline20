@@ -1,5 +1,5 @@
 package challenges;
-
+import java.util.Arrays;
 public class NumberTwo {
 
     /**
@@ -21,8 +21,18 @@ public class NumberTwo {
      *
      * @return true if the numbers are evenly spaced, otherwise false
      */
-    public boolean evenlySpaced(int a, int b, int c){
+    public boolean evenlySpaced(int a, int b, int c) {
 
-        throw new UnsupportedOperationException();
+        int[] nums = new int[3];
+        nums[0] = a;
+        nums[1] = b;
+        nums[2] = c;
+        Arrays.sort(nums);
+
+        if (nums[2] - nums[1] == nums[1] - nums[0]) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

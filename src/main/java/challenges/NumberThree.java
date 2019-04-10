@@ -24,7 +24,42 @@ public class NumberThree {
      * @return the string s in 24 hour format
      */
     public String timeConversion(String s) {
-        // Delete the line below and implement the method!
-        throw new UnsupportedOperationException();
+
+        String militaryTime = "";
+
+        String timeSubstring = s.substring(0,8);
+        String dayTime = s.substring(9);
+        //System.out.print(timeSubstring);
+        String[] timeSplit = timeSubstring.split(":");
+
+        int temp = Integer.parseInt(timeSplit[0]);
+
+        if(dayTime.equals("AM")){
+            if(temp == 12){
+                temp = 00;
+            }
+            else{
+                temp = temp;
+            }
+        }
+        else if(dayTime.equals("PM")){
+            if(temp == 12){
+                temp = temp;
+            }
+            else{
+                temp = temp + 12;
+            }
+        }
+
+        if(temp < 12){
+            String finalHour = "0" + Integer.toString(temp);
+        }
+        else{
+            String finalHour = Integer.toString(temp);
+        }
+
+        militaryTime = finalHour + ":" + timeSplit[1] + ":" + timeSplit[2];
+
+        return militaryTime;
     }
 }
