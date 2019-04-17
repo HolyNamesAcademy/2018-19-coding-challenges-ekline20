@@ -16,20 +16,19 @@ public class NumberFour {
 
         int [] rotated = new int [input.length];
 
-        for(int i = 0; i<input.length; i++){
-            int tempIndex = ((i-rotations)+ (input.length))%input.length;
-            rotated[tempIndex] = input[i];
-        }
+        if(rotations - input.length < 0) {
 
-        /*for(int i = 0; i<=rotations; i++){
-            for(int j = 0; j < input.length; j++){
-                int temp = input[0];
+            for (int i = 0; i < input.length; i++) {
+                int tempIndex = ((i - rotations) + (input.length)) % input.length;
+                rotated[tempIndex] = input[i];
             }
-        }*/
-
-        /*for(int i = 0; i < input.length; i++) {
-            rotated[(i - rotations) + input.length] = input[i];
-        }*/
+        }
+        else{
+            for (int i = 0; i < input.length; i++) {
+                int tempIndex = ((i - rotations/2) + (input.length)) % input.length;
+                rotated[tempIndex] = input[i];
+            }
+        }
 
         return rotated;
     }
